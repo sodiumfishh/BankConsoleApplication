@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Bank {
+public class Bank implements BankOperations {
     private List<Account> accounts;
 
     public Bank() {
@@ -12,6 +12,7 @@ public class Bank {
         accounts.add(account);
     }
 
+    @Override
     public void deposit(int accountNumber, double amount) {
         Account account = findAccount(accountNumber);
         if (account != null) {
@@ -21,6 +22,7 @@ public class Bank {
         }
     }
 
+    @Override
     public void withdraw(int accountNumber, double amount) {
         Account account = findAccount(accountNumber);
         if (account != null) {
@@ -30,6 +32,7 @@ public class Bank {
         }
     }
 
+    @Override
     public Account getAccount(int accountNumber) {
         return findAccount(accountNumber);
     }

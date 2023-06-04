@@ -12,7 +12,7 @@ public class BankMenu {
     public void displayMenu() {
         int choice;
         do {
-            System.out.println("Welcome to the Bank!");
+            System.out.println("Welcome to حبيبي Bank!");
             System.out.println("1. Create Account");
             System.out.println("2. Account Operations");
             System.out.println("3. Exit");
@@ -27,7 +27,7 @@ public class BankMenu {
                     accountOperationsMenu();
                     break;
                 case 3:
-                    System.out.println("Thank you for using the Bank!");
+                    System.out.println("Thank you for using حبيبي Bank!");
                     break;
                 default:
                     System.out.println("Invalid choice. Please try again.");
