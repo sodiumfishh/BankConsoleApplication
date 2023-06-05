@@ -1,8 +1,7 @@
 import java.util.ArrayList;
-import java.util.List;
 
 public class Bank implements BankOperations {
-    private List<Account> accounts;
+    private ArrayList<Account> accounts;
 
     public Bank() {
         accounts = new ArrayList<>();
