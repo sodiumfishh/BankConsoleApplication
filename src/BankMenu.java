@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class BankMenu {
@@ -62,31 +63,40 @@ public class BankMenu {
             }
         } while (choice != 3);
     }
-
     private void createSavingsAccount() {
-        System.out.print("Enter initial balance: ");
-        double balance = scanner.nextDouble();
-        System.out.print("Enter interest rate: ");
-        double interestRate = scanner.nextDouble();
+        try {
+            System.out.print("Enter initial balance: ");
+            double balance = scanner.nextDouble();
+            System.out.print("Enter interest rate: ");
+            double interestRate = scanner.nextDouble();
 
-        SavingsAccount account = new SavingsAccount(balance, interestRate);
-        bank.addAccount(account);
+            SavingsAccount account = new SavingsAccount(balance, interestRate);
+            bank.addAccount(account);
 
-        System.out.println("Savings Account created successfully! Account Number: " + account.getAccountNumber());
-        System.out.println("-----------------------------------");
+            System.out.println("Savings Account created successfully!");
+            System.out.println("Account Number: " + account.getAccountNumber());
+            System.out.println("-----------------------------------");
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input! Please try again.");
+        }
     }
 
     private void createCheckingAccount() {
-        System.out.print("Enter initial balance: ");
-        double balance = scanner.nextDouble();
-        System.out.print("Enter overdraft limit: ");
-        double overdraftLimit = scanner.nextDouble();
+        try {
+            System.out.print("Enter initial balance: ");
+            double balance = scanner.nextDouble();
+            System.out.print("Enter overdraft limit: ");
+            double overdraftLimit = scanner.nextDouble();
 
-        CheckingAccount account = new CheckingAccount(balance, overdraftLimit);
-        bank.addAccount(account);
+            CheckingAccount account = new CheckingAccount(balance, overdraftLimit);
+            bank.addAccount(account);
 
-        System.out.println("Checking Account created successfully! Account Number: " + account.getAccountNumber());
-        System.out.println("------------------------------------");
+            System.out.println("Checking Account created successfully!");
+            System.out.println("Account Number: " + account.getAccountNumber());
+            System.out.println("------------------------------------");
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input! Please try again.");
+        }
     }
 
 
@@ -123,26 +133,35 @@ public class BankMenu {
     }
 
     private void deposit() {
-        System.out.print("Enter account number: ");
-        int accountNumber = scanner.nextInt();
-        System.out.print("Enter deposit amount: ");
-        double amount = scanner.nextDouble();
+        try {
+            System.out.print("Enter account number: ");
+            int accountNumber = scanner.nextInt();
+            System.out.print("Enter deposit amount: ");
+            double amount = scanner.nextDouble();
 
-        bank.deposit(accountNumber, amount);
-        System.out.println("Deposit successful!");
-        System.out.println("------------------");
+            bank.deposit(accountNumber, amount);
+            System.out.println("Deposit successful!");
+            System.out.println("------------------");
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input! Please try again.");
+        }
     }
 
     private void withdraw() {
-        System.out.print("Enter account number: ");
-        int accountNumber = scanner.nextInt();
-        System.out.print("Enter withdrawal amount: ");
-        double amount = scanner.nextDouble();
+        try {
+            System.out.print("Enter account number: ");
+            int accountNumber = scanner.nextInt();
+            System.out.print("Enter withdrawal amount: ");
+            double amount = scanner.nextDouble();
 
-        bank.withdraw(accountNumber, amount);
-        System.out.println("Withdrawal successful!");
-        System.out.println("---------------------");
+            bank.withdraw(accountNumber, amount);
+            System.out.println("Withdrawal successful!");
+            System.out.println("---------------------");
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input! Please try again.");
+        }
     }
+
 
     private void displayAccountDetails() {
         System.out.print("Enter account number: ");
